@@ -1,11 +1,24 @@
 <?php
-$possible_characters ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>!£$%&/()=?*#@";
+
 
 $form_sent = !empty($_GET["user-number"]);
 
 if ($form_sent){
   $user_number = $_GET["user-number"];
 }
+
+
+function randomPassword($user_number){
+    $password ="";
+    $possible_characters ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>!£$%&/()=?*#@";
+    for ($i=0; $i < $user_number; $i++){
+       $n= rand(0, strlen($possible_characters)-1);
+       $password .= $possible_characters[$n];
+    }
+    return $password;
+}
+
+
 ?>
 
 
@@ -24,6 +37,8 @@ if ($form_sent){
     <input type="number" class="form-control ms-2" id="user-number" name="user-number" min="7" max="15">
    </div>
    <button class="btn btn-success ms-2">Invia</button>
+   
   </form> 
+  <h3><?php echo randomPassword($user_number)  ?></h3>
 </body>
 </html>
