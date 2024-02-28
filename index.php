@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__."/functions.php";
-require_once __DIR__."/success.php";
+
 
 $form_sent = !empty($_GET["user-number"]);
 
