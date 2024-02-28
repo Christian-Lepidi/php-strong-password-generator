@@ -37,6 +37,6 @@ if(!empty($user_number)){
    <button class="btn btn-success ms-2">Invia</button>
    
   </form> 
-  <h3 class="text-center mt-3"><?php echo randomPassword($user_number)  ?></h3>
+
 </body>
 </html>
