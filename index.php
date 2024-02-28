@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__."/functions.php";
+require_once __DIR__."/success.php";
 
 $form_sent = !empty($_GET["user-number"]);
 
@@ -7,8 +8,12 @@ if ($form_sent){
   $user_number = $_GET["user-number"];
 }
 
+if(!empty($user_number)){
+  header("Location: ./success.php");
+  session_start();
+  $_SESSION["password"]=randomPassword($user_number);
 
-
+}
 
 
 ?>
