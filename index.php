@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__."/functions.php";
 
 $form_sent = !empty($_GET["user-number"]);
 
@@ -8,15 +8,7 @@ if ($form_sent){
 }
 
 
-function randomPassword($user_number){
-    $password ="";
-    $possible_characters ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>!£$%&/()=?*#@";
-    for ($i=0; $i < $user_number; $i++){
-       $n= rand(0, strlen($possible_characters)-1);
-       $password .= $possible_characters[$n];
-    }
-    return $password;
-}
+
 
 
 ?>
@@ -31,6 +23,7 @@ function randomPassword($user_number){
     <title>PHP Strong Password</title>
 </head>
 <body>
+  <h1 class="text-center text-danger mb2">PASSWORD GENERATOR</h1>
   <form method="GET">  
    <div class="col-5  mb-3">
     <label for="user-number" class="form-label ms-2">Numero di caratteri</label>
@@ -39,6 +32,6 @@ function randomPassword($user_number){
    <button class="btn btn-success ms-2">Invia</button>
    
   </form> 
-  <h3><?php echo randomPassword($user_number)  ?></h3>
+  <h3 class="text-center mt-3"><?php echo randomPassword($user_number)  ?></h3>
 </body>
 </html>
